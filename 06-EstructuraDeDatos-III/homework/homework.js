@@ -52,10 +52,12 @@ BinarySearchTree.prototype.size = function () {
     // else return 1 + this.left.size() + this.right.size();
   }
 BinarySearchTree.prototype.contains = function (value) {
-  if (this.value === value) return true;
-  if (this.left && this.left.contains(value)) return true;
-  if (this.rigth && this.right.contains(value)) return true;
-  return false;
+    if (this.value === value) return true; // NO
+    // tengo algo a la izquierda Y el valor está a la izquierda?
+    if (this.left && this.left.contains(value)) return true;
+    // tengo algo a la derecha Y el valor está a la derecha?
+    if (this.right && this.right.contains(value)) return true;
+    return false;
 }
 BinarySearchTree.prototype.depthFirstForEach = function (cb, type) {
   switch (type){
